@@ -8,15 +8,15 @@ public class YorkConstructionStrategy implements MazeConstructionStrategy{
 
     @Override
     public Room createRooms() {
-        Room startingRoom = new BasicRoom();
+        Room startingRoom = new SimpleRoom();
 
         Room anotherRoom = new DarkRoom();
         startingRoom.setNorth(anotherRoom);
         anotherRoom.setSouth(startingRoom);
 
         Room thirdRoom = new SimpleRoom();
-        anotherRoom.setDown(thirdRoom);
-        thirdRoom.setUp(anotherRoom);
+        anotherRoom.setWest(thirdRoom);
+        thirdRoom.setEast(anotherRoom);
 
         Room finalRoom = new BasicRoom();
         anotherRoom.setEast(finalRoom);
