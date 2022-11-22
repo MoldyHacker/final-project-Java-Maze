@@ -7,28 +7,6 @@ import edu.wctc.maze.io.InputService;
 import edu.wctc.maze.io.OutputService;
 
 public class Main {
-    // Create Room objects and link them together to
-    // form a maze
-//    private static Room createRooms() {
-//        Room startingRoom = new BasicRoom();
-//
-//        Room anotherRoom = new DarkRoom();
-//        startingRoom.setNorth(anotherRoom);
-//        anotherRoom.setSouth(startingRoom);
-//
-//        Room thirdRoom = new SimpleRoom();
-//        anotherRoom.setDown(thirdRoom);
-//        thirdRoom.setUp(anotherRoom);
-//
-//        Room finalRoom = new BasicRoom();
-//        anotherRoom.setEast(finalRoom);
-//        finalRoom.setWest(anotherRoom);
-//
-//        // Return the starting room
-//        return startingRoom;
-//    }
-
-
     public static void main(String[] args) {
         InputService in = new ConsoleInputService();
 
