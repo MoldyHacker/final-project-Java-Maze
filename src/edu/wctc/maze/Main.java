@@ -5,31 +5,29 @@ import edu.wctc.maze.io.ConsoleInputService;
 import edu.wctc.maze.io.ConsoleOutputService;
 import edu.wctc.maze.io.InputService;
 import edu.wctc.maze.io.OutputService;
-import edu.wctc.maze.roomimpl.BasicRoom;
-import edu.wctc.maze.roomimpl.DarkRoom;
-import edu.wctc.maze.roomimpl.SimpleRoom;
 
 public class Main {
     // Create Room objects and link them together to
     // form a maze
-    private static Room createRooms() {
-        Room startingRoom = new BasicRoom();
+//    private static Room createRooms() {
+//        Room startingRoom = new BasicRoom();
+//
+//        Room anotherRoom = new DarkRoom();
+//        startingRoom.setNorth(anotherRoom);
+//        anotherRoom.setSouth(startingRoom);
+//
+//        Room thirdRoom = new SimpleRoom();
+//        anotherRoom.setDown(thirdRoom);
+//        thirdRoom.setUp(anotherRoom);
+//
+//        Room finalRoom = new BasicRoom();
+//        anotherRoom.setEast(finalRoom);
+//        finalRoom.setWest(anotherRoom);
+//
+//        // Return the starting room
+//        return startingRoom;
+//    }
 
-        Room anotherRoom = new DarkRoom();
-        startingRoom.setNorth(anotherRoom);
-        anotherRoom.setSouth(startingRoom);
-
-        Room thirdRoom = new SimpleRoom();
-        anotherRoom.setDown(thirdRoom);
-        thirdRoom.setUp(anotherRoom);
-
-        Room finalRoom = new BasicRoom();
-        anotherRoom.setEast(finalRoom);
-        finalRoom.setWest(anotherRoom);
-
-        // Return the starting room
-        return startingRoom;
-    }
 
     public static void main(String[] args) {
         InputService in = new ConsoleInputService();
@@ -40,8 +38,8 @@ public class Main {
 
         // TODO Module 5: Create a construction strategy to replace the static
         //  createRooms method in main. Use it below.
-
-        Maze maze = new Maze(createRooms());
+        MazeConstructionStrategy rooms = new ZorkConstructionStrategy();
+        Maze maze = new Maze(rooms.createRooms());
 
         while (maze.isPlaying()) {
             out.print(maze.getCurrentRoomName());
