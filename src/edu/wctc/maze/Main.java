@@ -12,11 +12,12 @@ public class Main {
 
         OutputService out = new ConsoleOutputService();
 
+        MazeConstructionStrategy rooms = new ZorkConstructionStrategy();
+
         // TODO Module 7: Create a companion factory and pass it to the construction strategy
 
         // TODO Module 5: Create a construction strategy to replace the static
         //  createRooms method in main. Use it below.
-        MazeConstructionStrategy rooms = new ZorkConstructionStrategy();
         Maze maze = new Maze(rooms.createRooms());
 
         while (maze.isPlaying()) {
