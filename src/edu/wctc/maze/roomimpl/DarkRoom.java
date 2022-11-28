@@ -2,6 +2,7 @@ package edu.wctc.maze.roomimpl;
 
 import edu.wctc.maze.InvalidActionException;
 import edu.wctc.maze.Player;
+import edu.wctc.maze.PrintQueueEnum;
 import edu.wctc.maze.Room;
 
 public class DarkRoom extends Room {
@@ -14,8 +15,7 @@ public class DarkRoom extends Room {
     public void performAction(char action, Player player) throws InvalidActionException {
         if (action == 'i') {
             player.addToScore(-5);
-            // TODO Module 6: Enqueue the message
-            //  "Does stumbling around bumping into things count as interacting?"
+            PrintQueueEnum.INSTANCE.enqueue("Does stumbling around bumping into things count as interacting?");
         } else {
             throw new InvalidActionException();
         }

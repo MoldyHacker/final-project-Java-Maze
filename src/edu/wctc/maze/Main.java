@@ -16,8 +16,6 @@ public class Main {
 
         // TODO Module 7: Create a companion factory and pass it to the construction strategy
 
-        // TODO Module 5: Create a construction strategy to replace the static
-        //  createRooms method in main. Use it below.
         Maze maze = new Maze(rooms.createRooms());
 
         while (maze.isPlaying()) {
@@ -30,7 +28,7 @@ public class Main {
             char command = in.getInput();
             maze.performAction(command);
 
-            // TODO Module 6: Flush the print queue to the output service
+            out.print(PrintQueueEnum.INSTANCE.flush());
         }
 
         out.print("GAME OVER");
