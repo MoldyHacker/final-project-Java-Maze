@@ -1,5 +1,7 @@
 package edu.wctc.maze;
 
+import edu.wctc.maze.factory.Companion;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +12,15 @@ public class Player {
 
     private List<String> inventory = new ArrayList<>();
 
-    // TODO Module 7: Add list of companions
+    private List<Companion> companions = new ArrayList<>();
 
-    // TODO Module 7: Add method to add new companion to the list
+    public void addCompanion(Companion companion) {
+        companions.add(companion);
+    }
 
-    // TODO Module 7: Add method to remove a companion from the list
+    public void removeCompanion(Companion companion) {
+        companions.remove(companion);
+    }
 
     public void addToInventory(String item) {
         inventory.add(item);

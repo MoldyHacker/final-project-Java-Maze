@@ -1,6 +1,8 @@
 package edu.wctc.maze;
 
 
+import edu.wctc.maze.catCompanions.CatCompanionFactory;
+import edu.wctc.maze.factory.CompanionFactory;
 import edu.wctc.maze.io.ConsoleInputService;
 import edu.wctc.maze.io.ConsoleOutputService;
 import edu.wctc.maze.io.InputService;
@@ -12,9 +14,11 @@ public class Main {
 
         OutputService out = new ConsoleOutputService();
 
-        MazeConstructionStrategy rooms = new ZorkConstructionStrategy();
+        CompanionFactory companionFactory = new CatCompanionFactory();
 
-        // TODO Module 7: Create a companion factory and pass it to the construction strategy
+        MazeConstructionStrategy rooms = new ZorkConstructionStrategy(companionFactory);
+
+
 
         Maze maze = new Maze(rooms.createRooms());
 

@@ -1,5 +1,7 @@
 package edu.wctc.maze;
 
+import edu.wctc.maze.factory.Companion;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +11,7 @@ public abstract class Room {
     private String name, description;
     private Map<Character, Room> connectedRooms = new HashMap<>();
 
-    // TODO Module 7: Create a field to hold this room's companion
+    private Companion companion;
 
     public Room(String name, String description) {
         this.name = name;
@@ -25,9 +27,8 @@ public abstract class Room {
     }
 
     public String getDescription() {
-        // TODO Module 7: If this room contains a recruitable companion,
-        //  append "{companion_name} is here" to the returned description
-
+        if (this.companion != null)
+            return String.format("%s\n%s is here.",this.description ,this.companion.getName());
         return this.description;
     }
 
@@ -63,11 +64,18 @@ public abstract class Room {
 
     public abstract void performAction(char action, Player player) throws InvalidActionException;
 
-    // TODO Module 7: Add method to recruit this room's companion:
-    //  public void recruitCompanion(Player player)
-    //  (Remember to use your PrintQueue to perform output as needed)
+    public void recruitCompanion(Player player) throws NoCompanionException {
+        if (this.companion != null){
+            player.addCompanion(this.companion);
+            PrintQueueEnum.INSTANCE.enqueue(String.format("%s joins you.\n", this.companion.getName()));
+            this.companion = null;
+        } else throw new NoCompanionException();
 
-    // TODO Module 7: Add a setter method to set this room's companion
+    }
+
+    public void setCompanion(Companion companion){
+        this.companion = companion;
+    }
 
     public void setDown(Room room) {
         connectedRooms.put('d', room);

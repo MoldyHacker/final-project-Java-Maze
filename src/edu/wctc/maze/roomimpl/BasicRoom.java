@@ -11,7 +11,6 @@ public class BasicRoom extends Room {
                 "This room is totally nondescript. There is nothing to do or see here.");
     }
 
-
     @Override
     public void performAction(char action, Player player) throws InvalidActionException {
         if (action == 'x') {
