@@ -70,7 +70,6 @@ public abstract class Room {
             PrintQueueEnum.INSTANCE.enqueue(String.format("%s joins you.\n", this.companion.getName()));
             this.companion = null;
         } else throw new NoCompanionException();
-
     }
 
     public void setCompanion(Companion companion){

@@ -4,8 +4,9 @@ import edu.wctc.maze.InvalidActionException;
 import edu.wctc.maze.Player;
 import edu.wctc.maze.PrintQueueEnum;
 import edu.wctc.maze.Room;
+import edu.wctc.maze.observer.PushObserver;
 
-public class BasicRoom extends Room {
+public class BasicRoom extends Room implements PushObserver {
     public BasicRoom() {
         super("Boring Room",
                 "This room is totally nondescript. There is nothing to do or see here.");
@@ -20,5 +21,15 @@ public class BasicRoom extends Room {
         } else {
             throw new InvalidActionException();
         }
+    }
+
+    @Override
+    public void updateItem(String item) {
+
+    }
+
+    @Override
+    public void updateScore(int points) {
+
     }
 }

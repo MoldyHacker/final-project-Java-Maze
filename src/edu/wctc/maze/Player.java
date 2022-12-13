@@ -1,11 +1,12 @@
 package edu.wctc.maze;
 
 import edu.wctc.maze.factory.Companion;
+import edu.wctc.maze.observer.PushObserver;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public class Player implements PushObserver {
     private boolean playing = true;
 
     private int score = 0;
@@ -26,6 +27,7 @@ public class Player {
         inventory.add(item);
 
         // TODO Module 8: Notify all companions the player acquired a new item
+        updateItem(item);
 
     }
 
@@ -33,7 +35,7 @@ public class Player {
         score += points;
 
         // TODO Module 8: Notify all companions the player's score changed
-
+        updateScore(points);
     }
 
     public String getInventory() {
@@ -59,4 +61,13 @@ public class Player {
         playing = false;
     }
 
+    @Override
+    public void updateItem(String item) {
+
+    }
+
+    @Override
+    public void updateScore(int points) {
+
+    }
 }

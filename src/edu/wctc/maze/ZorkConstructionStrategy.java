@@ -5,7 +5,7 @@ import edu.wctc.maze.roomimpl.BasicRoom;
 import edu.wctc.maze.roomimpl.DarkRoom;
 import edu.wctc.maze.roomimpl.SimpleRoom;
 
-public class ZorkConstructionStrategy implements MazeConstructionStrategy{
+public class ZorkConstructionStrategy implements MazeConstructionStrategy {
 
     CompanionFactory companionFactory;
     public ZorkConstructionStrategy(CompanionFactory companionFactory) {

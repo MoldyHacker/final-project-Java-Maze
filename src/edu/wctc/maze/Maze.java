@@ -1,6 +1,12 @@
 package edu.wctc.maze;
 
-public class Maze {
+import edu.wctc.maze.observer.PushObservable;
+import edu.wctc.maze.observer.PushObserver;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Maze implements PushObservable {
     private Room currentRoom;
 
     private Player player = new Player();
@@ -70,5 +76,21 @@ public class Maze {
                 }
                 break;
         }
+    }
+
+    private List<PushObserver> observerList = new ArrayList<>();
+    @Override
+    public void addObserver(PushObserver observer) {
+        observerList.add(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        observerList.forEach(pushObserver -> pushObserver.updateScore(player.getScore()));
+    }
+
+    @Override
+    public void removeObserver(PushObserver observer) {
+        observerList.add(observer);
     }
 }
